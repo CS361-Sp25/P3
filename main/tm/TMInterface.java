@@ -3,7 +3,7 @@ package tm;
 import java.util.Set;
 
 /**
- * An interface for a deterministic Turing Machine with a one start
+ * An interface for a deterministic Turing Machine with one start
  * state and one final state.
  *
  * @author Jayce Lowry
