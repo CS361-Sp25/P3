@@ -32,7 +32,6 @@ public class TMTape implements TMTapeInterface {
         // populating the tape with the given input string
         for (int i = 0; i < inputString.length(); i++) {
             tape.put(i, inputString.charAt(i));
-            maxVisited = i;
         }
     }
 
@@ -52,7 +51,11 @@ public class TMTape implements TMTapeInterface {
         if (symbol == null) {
             return;
         }
-        tape.put(head, symbol);
+        if (symbol == '0') {
+            tape.remove(head);
+        } else {
+            tape.put(head, symbol);
+        }
         updateBounds();
     }
 
