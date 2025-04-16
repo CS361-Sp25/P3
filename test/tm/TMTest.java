@@ -103,5 +103,22 @@ public class TMTest {
         String out = machine.run("");
 
         assertEquals(20430, out.length());
+        assertEquals(47189, sumString(out));
+    }
+
+    /**
+     * Sums the characters in a given string.
+     * Characters are assumed to be numerical digits.
+     *
+     * @param input a string of numerical digits.
+     * @return the sum of numerical digits in the string.
+     */
+    private int sumString(String input) {
+        int sum = 0;
+        for (int i = 0; i < input.length(); i++) {
+            int digit = Character.getNumericValue(input.charAt(i));
+            sum += digit;
+        }
+        return sum;
     }
 }
