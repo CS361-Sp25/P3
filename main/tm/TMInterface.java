@@ -42,15 +42,15 @@ public interface TMInterface {
      * from the tape, a symbol to write to the tape, and
      * a direction to move the read/write head.
      *
-     * @param fromState the state to transition from.
-     * @param toState the state to transition to.
+     * @param fromState the name of the state to transition from.
+     * @param toState the name of the state to transition to.
      * @param readSymb the symbol to read from the tape.
      * @param writeSymb the symbol to write to the tape.
      * @param move the direction to move the read/write head.
      * @return true if successful, false if the states don't exist or if
      * the read or write symbols are not in the tape alphabet.
      */
-    public boolean addTransition(TMState fromState, TMState toState, char readSymb, char writeSymb, Direction move);
+    public boolean addTransition(String fromState, String toState, char readSymb, char writeSymb, Direction move);
 
     /**
      * Marks a state with a given name as the initial state.
