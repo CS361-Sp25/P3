@@ -35,21 +35,16 @@ public class TM implements TMInterface {
         }
         TMTape tape = new TMTape(inputString);
         TMState currentState = startState;
-        boolean isHalted = false;
 
-        while (!isHalted) {
+        while (currentState != null && currentState != finalState) {
             char readSymb = tape.read();
-            TMTransition transition = currentState.getTransition(readSymb);
-            if (transition == null) {
-                isHalted = true;
-                continue;
+            Character writeSymb = currentState.getWriteSymbol(readSymb);
+            Direction moveDirection = currentState.getMoveDirection(readSymb);
+            if (writeSymb != null && moveDirection != null) {
+                tape.write(writeSymb);
+                tape.move(moveDirection);
             }
-            tape.write(transition.getWriteSymbol());
-            tape.move(transition.getDirection());
-            currentState = transition.getNextState();
-            if (currentState == finalState) {
-                isHalted = true;
-            }
+            currentState = currentState.getTransitionState(readSymb);
         }
 
         return tape.getVisited();

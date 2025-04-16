@@ -48,7 +48,10 @@ public class TMTape implements TMTapeInterface {
      * {@inheritDoc}
      */
     @Override
-    public void write(char symbol) {
+    public void write(Character symbol) {
+        if (symbol == null) {
+            return;
+        }
         tape.put(head, symbol);
         updateBounds();
     }
@@ -58,6 +61,9 @@ public class TMTape implements TMTapeInterface {
      */
     @Override
     public void move(TMInterface.Direction direction) {
+        if (direction == null) {
+            return;
+        }
         if (direction == TMInterface.Direction.LEFT) {
             head--;
         } else { 

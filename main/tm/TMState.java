@@ -48,14 +48,88 @@ public class TMState {
     }
 
     /**
-     * Gets the transition data for this TMState on
-     * a particular read symbol.
+     * Gets the TMState to transition to when a given symbol
+     * is read.
      *
      * @param readSymb the symbol read from the tape.
-     * @return the transition information for this
-     * TMState.
+     * @return the state to transition to, or null if no
+     * transition on the given symbol exists.
      */
-    public TMTransition getTransition(char readSymb) {
-        return transitions.get(readSymb);
+    public TMState getTransitionState(char readSymb) {
+        TMTransition transitionData = transitions.get(readSymb);
+        return (transitionData == null) ? null : transitionData.getNextState();
+    }
+
+    /**
+     * Gets the symbol to write to the tape when a given
+     * symbol is read.
+     *
+     * @param readSymb the symbol to read from the tape.
+     * @return the state to transition to, or null if no
+     * transition on the given symbol exists.
+     */
+    public Character getWriteSymbol(char readSymb) {
+        TMTransition transitionData = transitions.get(readSymb);
+        return (transitionData == null) ? null : transitionData.getWriteSymbol();
+    }
+
+    /**
+     * Gets the direction to move the read/write head for the tape
+     * when a given symbol is read.
+     *
+     * @param readSymb the symbol to read from the tape.
+     * @return the direction to move, or null if no transition
+     * on the given symbol exists.
+     */
+    public TMInterface.Direction getMoveDirection(char readSymb) {
+        TMTransition transitionData = transitions.get(readSymb);
+        return (transitionData == null) ? null : transitionData.getDirection();
+    }
+
+    /**
+     * Represents a single transition in the machine. Within this is
+     * the next state, the element/symbol to write, and the direction
+     * to move.
+     *
+     * @author Chase Stombaugh
+     */
+    private class TMTransition {
+        private final TMState nextState;
+        private final char writeSymbol;
+        private final TMInterface.Direction direction;
+
+        /**
+         * Creates a new TMTransition
+         *
+         * @param nextState the state to transition to.
+         * @param writeSymbol the symbol to write to the tape.
+         * @param direction the direction to move on the tape.
+         */
+        private TMTransition(TMState nextState, char writeSymbol, TMInterface.Direction direction) {
+            this.nextState = nextState;
+            this.writeSymbol = writeSymbol;
+            this.direction = direction;
+        }
+
+        /**
+         * @return the next state.
+         */
+        private TMState getNextState() {
+            return nextState;
+        }
+
+        /**
+         * @return the symbol to write to the tape.
+         */
+        private char getWriteSymbol() {
+            return writeSymbol;
+        }
+
+        /**
+         * @return the direction to move on the tape.
+         */
+        private TMInterface.Direction getDirection() {
+            return direction;
+        }
     }
 }
