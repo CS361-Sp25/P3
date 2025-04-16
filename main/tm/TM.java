@@ -1,19 +1,28 @@
 package tm;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
  * An implementation of the TMInterface.
  *
- * @author
+ * @author Jayce Lowry
  */
 public class TM implements TMInterface {
+    private Set<TMState> states;
+    private Set<Character> alphabet;
+    private TMState startState;
+    private TMState finalState;
+
 
     /**
      * Creates a new Turing Machine.
      */
     public TM() {
-
+        states = new LinkedHashSet<>();
+        alphabet = new LinkedHashSet<>();
+        startState = finalState = null;
+        alphabet.add('0');
     }
 
     /**
@@ -21,7 +30,29 @@ public class TM implements TMInterface {
      */
     @Override
     public String run(String inputString) {
-        return "";
+        if (inputString == null || startState == null || finalState == null) {
+            return "";
+        }
+        TMTape tape = new TMTape(inputString);
+        TMState currentState = startState;
+        boolean isHalted = false;
+
+        while (!isHalted) {
+            char readSymb = tape.read();
+            TMTransition transition = currentState.getTransition(readSymb);
+            if (transition == null) {
+                isHalted = true;
+                continue;
+            }
+            tape.write(transition.getWriteSymbol());
+            tape.move(transition.getDirection());
+            currentState = transition.getNextState();
+            if (currentState == finalState) {
+                isHalted = true;
+            }
+        }
+
+        return tape.getVisited();
     }
 
     /**
@@ -29,15 +60,27 @@ public class TM implements TMInterface {
      */
     @Override
     public boolean addState(String name) {
-        return false;
+        if (name == null || getState(name) != null) {
+            return false;
+        }
+        TMState state = new TMState(name);
+        states.add(state);
+        return true;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean addTransition(TMState fromState, TMState toState, char readSymb, char writeSymb, Direction move) {
-        return false;
+    public boolean addTransition(String fromState, String toState, char readSymb, char writeSymb, Direction move) {
+        TMState from = getState(fromState);
+        TMState to = getState(toState);
+
+        if (to == null || from == null || !alphabet.contains(readSymb) || !alphabet.contains(writeSymb)) {
+            return false;
+        }
+        from.setTransition(to, readSymb, writeSymb, move);
+        return true;
     }
 
     /**
@@ -45,7 +88,12 @@ public class TM implements TMInterface {
      */
     @Override
     public boolean setStart(String name) {
-        return false;
+        TMState state = getState(name);
+        if (state == null) {
+            return false;
+        }
+        startState = state;
+        return true;
     }
 
     /**
@@ -53,7 +101,12 @@ public class TM implements TMInterface {
      */
     @Override
     public boolean setFinal(String name) {
-        return false;
+        TMState state = getState(name);
+        if (state == null) {
+            return false;
+        }
+        finalState = state;
+        return true;
     }
 
     /**
@@ -61,7 +114,7 @@ public class TM implements TMInterface {
      */
     @Override
     public boolean isStart(String name) {
-        return false;
+        return startState != null && startState.getName().equals(name);
     }
 
     /**
@@ -69,7 +122,7 @@ public class TM implements TMInterface {
      */
     @Override
     public boolean isFinal(String name) {
-        return false;
+        return finalState != null && finalState.getName().equals(name);
     }
 
     /**
@@ -77,7 +130,10 @@ public class TM implements TMInterface {
      */
     @Override
     public void addSigma(char symbol) {
-
+        if (symbol == '0') {
+            return;
+        }
+        alphabet.add(symbol);
     }
 
     /**
@@ -85,7 +141,9 @@ public class TM implements TMInterface {
      */
     @Override
     public Set<Character> getSigma() {
-        return Set.of();
+        Set<Character> retSet = new LinkedHashSet<>(alphabet);
+        retSet.remove('0');
+        return retSet;
     }
 
     /**
@@ -93,6 +151,14 @@ public class TM implements TMInterface {
      */
     @Override
     public TMState getState(String name) {
+        if (name == null) {
+            return null;
+        }
+        for (TMState state : states) {
+            if (state.getName().equals(name)) {
+                return state;
+            }
+        }
         return null;
     }
 }
