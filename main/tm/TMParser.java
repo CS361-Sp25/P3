@@ -62,7 +62,7 @@ public class TMParser implements TMParserInterface {
                     ? TMInterface.Direction.LEFT : TMInterface.Direction.RIGHT;
                 char read = (char)(readSymbolIndex + '0');
 
-                machine.addTransition(machine.getState(from), machine.getState(to), read, write, direction);
+                machine.addTransition(from, to, read, write, direction);
             }
 
             // Read the final input line

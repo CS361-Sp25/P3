@@ -32,7 +32,6 @@ public class TMTape implements TMTapeInterface {
         // populating the tape with the given input string
         for (int i = 0; i < inputString.length(); i++) {
             tape.put(i, inputString.charAt(i));
-            maxVisited = i;
         }
     }
 
@@ -48,8 +47,15 @@ public class TMTape implements TMTapeInterface {
      * {@inheritDoc}
      */
     @Override
-    public void write(char symbol) {
-        tape.put(head, symbol);
+    public void write(Character symbol) {
+        if (symbol == null) {
+            return;
+        }
+        if (symbol == '0') {
+            tape.remove(head);
+        } else {
+            tape.put(head, symbol);
+        }
         updateBounds();
     }
 
@@ -58,6 +64,9 @@ public class TMTape implements TMTapeInterface {
      */
     @Override
     public void move(TMInterface.Direction direction) {
+        if (direction == null) {
+            return;
+        }
         if (direction == TMInterface.Direction.LEFT) {
             head--;
         } else { 

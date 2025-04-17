@@ -24,7 +24,7 @@ public interface TMTapeInterface {
      *
      * @param symbol the character to write.
      */
-    public void write(char symbol);
+    public void write(Character symbol);
 
     /**
      * Moves the read/write head for this tape
