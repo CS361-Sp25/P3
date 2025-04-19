@@ -26,6 +26,11 @@ The TM processes transitions encoded in the input file and halts once the accept
 
 ### Chase
 
+My main role during this was to do the TMParser class as well as the TMSimulator class. However, Jayce got on a roll and ended up doing the TMSimulator class, much to my surprise. The TMParser class went pretty smoothly, as it was really just figuring out the format of the strings. If we hadn't gone over it in lecture, then I think this would have been a good bit more challenging. The interface that Jayce had created definitely helped with this, as it allowed me to better visualize what was going on and needed from the class. One of the tricky parts however was trying to associate each line in the transition section with the correct (state, symbol) pair using the line number math. 
+
+Then it was also important to pay close attention to the alphabet versus the tape symbols. The blank symbol '0' isn't a part of the input alphabet but it is a part of the tape alphabet. Then there was the issue of discovering and implementing the edge cases. Then it came to integrating it into TMSimulator. I was supposed to do this, but as previously stated, Jayce beat me to this part. He really was the carry behind this project. I did not get to contribute nearly as much as I wanted this time. 
+
+This project did help me with getting a little more comfortable with parsing structured input since that has always been a weakpoint of mine. Handling exceptions hasn't been too bad but I think this project helped there as well. Then when being given a more open-ended interface, I feel like I performed fairly well compared to how I thought I would. I wasn't a fan of how empty the project description felt but Jayce carried that once again by going through and creating basically an outline oh what was to be needed. 
 
 
 ## Compiling and Using
