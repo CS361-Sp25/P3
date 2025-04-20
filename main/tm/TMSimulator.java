@@ -28,10 +28,14 @@ public class TMSimulator {
             System.err.println(USAGE);
             System.exit(1);
         }
-        // TODO Exception handling
-        TMParser parser = new TMParser(inputFile);
-        machine = parser.getMachine();
-        input = parser.getInputString();
+        try {
+            TMParser parser = new TMParser(inputFile);
+            machine = parser.getMachine();
+            input = parser.getInputString();
+        } catch (Exception e) {
+            System.err.println("There was an error parsing TM input file: " + e.getMessage());
+            System.exit(1);
+        }
     }
 
     /**

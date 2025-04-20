@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Set;
 public class TMParserTest {
 
     @Test
-    public void testParseMachine1() {
+    public void testParseMachine1() throws IOException {
         TMParser parser = new TMParser(new File("test/machines/file0.txt"));
         TM machine = parser.getMachine();
         String input = parser.getInputString();
@@ -74,7 +75,7 @@ public class TMParserTest {
     }
 
     @Test
-    public void testParseMachine2() {
+    public void testParseMachine2() throws IOException {
         TMParser parser = new TMParser(new File("test/machines/file2.txt"));
         TM machine = parser.getMachine();
         String input = parser.getInputString();
@@ -185,7 +186,7 @@ public class TMParserTest {
     }
 
     @Test
-    public void testParseMachine3() {
+    public void testParseMachine3() throws IOException {
         TMParser parser = new TMParser(new File("test/machines/file5.txt"));
         TM machine = parser.getMachine();
         String input = parser.getInputString();
