@@ -11,12 +11,6 @@ import java.util.Set;
 public interface TMInterface {
 
     /**
-     * Enum representing possible movement directions for the
-     * read/write head.
-     */
-    enum Direction {LEFT, RIGHT}
-
-    /**
      * Runs a simulation of this Turing Machine with a given
      * String input.
      *

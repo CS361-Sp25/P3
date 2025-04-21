@@ -33,7 +33,7 @@ public interface TMTapeInterface {
      * @param direction the direction to move, which
      * is either left or right.
      */
-    void move(TMInterface.Direction direction);
+    void move(Direction direction);
 
     /**
      * Gets the contents of visited tape cells, starting

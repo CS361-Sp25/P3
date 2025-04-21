@@ -39,7 +39,7 @@ public class TMState {
      * @param writeSymb the symbol to write to the tape.
      * @param move the direction to move on the tape.
      */
-    public void setTransition(TMState toState, char readSymb, char writeSymb, TMInterface.Direction move) {
+    public void setTransition(TMState toState, char readSymb, char writeSymb, Direction move) {
         if (toState == null) {
             return;
         }
@@ -81,7 +81,7 @@ public class TMState {
      * @return the direction to move, or null if no transition
      * on the given symbol exists.
      */
-    public TMInterface.Direction getMoveDirection(char readSymb) {
+    public Direction getMoveDirection(char readSymb) {
         TMTransition transitionData = transitions.get(readSymb);
         return (transitionData == null) ? null : transitionData.getDirection();
     }
@@ -96,7 +96,7 @@ public class TMState {
     private class TMTransition {
         private final TMState nextState;
         private final char writeSymbol;
-        private final TMInterface.Direction direction;
+        private final Direction direction;
 
         /**
          * Creates a new TMTransition
@@ -105,7 +105,7 @@ public class TMState {
          * @param writeSymbol the symbol to write to the tape.
          * @param direction the direction to move on the tape.
          */
-        private TMTransition(TMState nextState, char writeSymbol, TMInterface.Direction direction) {
+        private TMTransition(TMState nextState, char writeSymbol, Direction direction) {
             this.nextState = nextState;
             this.writeSymbol = writeSymbol;
             this.direction = direction;
@@ -128,7 +128,7 @@ public class TMState {
         /**
          * @return the direction to move on the tape.
          */
-        private TMInterface.Direction getDirection() {
+        private Direction getDirection() {
             return direction;
         }
     }

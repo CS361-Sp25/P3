@@ -23,12 +23,12 @@ public class TMTest {
 
         machine.addSigma('1');
 
-        assertTrue(machine.addTransition("0", "1", '0', '1', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("0", "2", '1', '1', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("1", "0", '0', '1', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("1", "1", '1', '1', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("2", "1", '0', '1', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("2", "3", '1', '1', TMInterface.Direction.RIGHT));
+        assertTrue(machine.addTransition("0", "1", '0', '1', Direction.RIGHT));
+        assertTrue(machine.addTransition("0", "2", '1', '1', Direction.LEFT));
+        assertTrue(machine.addTransition("1", "0", '0', '1', Direction.LEFT));
+        assertTrue(machine.addTransition("1", "1", '1', '1', Direction.RIGHT));
+        assertTrue(machine.addTransition("2", "1", '0', '1', Direction.LEFT));
+        assertTrue(machine.addTransition("2", "3", '1', '1', Direction.RIGHT));
 
         assertEquals("111111", machine.run(""));
     }
@@ -46,25 +46,25 @@ public class TMTest {
             machine.addSigma(Character.forDigit(i, 10));
         }
 
-        assertTrue(machine.addTransition("0", "2", '0', '1', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("0", "4", '1', '2', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("0", "1", '2', '0', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("0", "3", '3', '0', TMInterface.Direction.LEFT));
+        assertTrue(machine.addTransition("0", "2", '0', '1', Direction.LEFT));
+        assertTrue(machine.addTransition("0", "4", '1', '2', Direction.LEFT));
+        assertTrue(machine.addTransition("0", "1", '2', '0', Direction.LEFT));
+        assertTrue(machine.addTransition("0", "3", '3', '0', Direction.LEFT));
 
-        assertTrue(machine.addTransition("1", "3", '0', '3', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("1", "3", '1', '3', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("1", "3", '2', '3', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("1", "1", '3', '1', TMInterface.Direction.RIGHT));
+        assertTrue(machine.addTransition("1", "3", '0', '3', Direction.RIGHT));
+        assertTrue(machine.addTransition("1", "3", '1', '3', Direction.LEFT));
+        assertTrue(machine.addTransition("1", "3", '2', '3', Direction.LEFT));
+        assertTrue(machine.addTransition("1", "1", '3', '1', Direction.RIGHT));
 
-        assertTrue(machine.addTransition("2", "1", '0', '3', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("2", "2", '1', '3', TMInterface.Direction.LEFT));
-        assertTrue(machine.addTransition("2", "0", '2', '1', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("2", "2", '3', '1', TMInterface.Direction.RIGHT));
+        assertTrue(machine.addTransition("2", "1", '0', '3', Direction.LEFT));
+        assertTrue(machine.addTransition("2", "2", '1', '3', Direction.LEFT));
+        assertTrue(machine.addTransition("2", "0", '2', '1', Direction.RIGHT));
+        assertTrue(machine.addTransition("2", "2", '3', '1', Direction.RIGHT));
 
-        assertTrue(machine.addTransition("3", "0", '0', '1', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("3", "1", '1', '0', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("3", "0", '2', '2', TMInterface.Direction.RIGHT));
-        assertTrue(machine.addTransition("3", "2", '3', '2', TMInterface.Direction.RIGHT));
+        assertTrue(machine.addTransition("3", "0", '0', '1', Direction.RIGHT));
+        assertTrue(machine.addTransition("3", "1", '1', '0', Direction.RIGHT));
+        assertTrue(machine.addTransition("3", "0", '2', '2', Direction.RIGHT));
+        assertTrue(machine.addTransition("3", "2", '3', '2', Direction.RIGHT));
 
         String expected = "03123333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333";
 
@@ -85,20 +85,20 @@ public class TMTest {
             machine.addSigma(Character.forDigit(i, 10));
         }
 
-        machine.addTransition("0", "1", '0', '3', TMInterface.Direction.RIGHT);
-        machine.addTransition("0", "0", '1', '0', TMInterface.Direction.RIGHT);
-        machine.addTransition("0", "2", '2', '0', TMInterface.Direction.LEFT);
-        machine.addTransition("0", "2", '3', '2', TMInterface.Direction.LEFT);
+        machine.addTransition("0", "1", '0', '3', Direction.RIGHT);
+        machine.addTransition("0", "0", '1', '0', Direction.RIGHT);
+        machine.addTransition("0", "2", '2', '0', Direction.LEFT);
+        machine.addTransition("0", "2", '3', '2', Direction.LEFT);
 
-        machine.addTransition("1", "2", '0', '1', TMInterface.Direction.LEFT);
-        machine.addTransition("1", "2", '1', '0', TMInterface.Direction.RIGHT);
-        machine.addTransition("1", "1", '2', '3', TMInterface.Direction.LEFT);
-        machine.addTransition("1", "2", '3', '2', TMInterface.Direction.RIGHT);
+        machine.addTransition("1", "2", '0', '1', Direction.LEFT);
+        machine.addTransition("1", "2", '1', '0', Direction.RIGHT);
+        machine.addTransition("1", "1", '2', '3', Direction.LEFT);
+        machine.addTransition("1", "2", '3', '2', Direction.RIGHT);
 
-        machine.addTransition("2", "0", '0', '3', TMInterface.Direction.RIGHT);
-        machine.addTransition("2", "1", '1', '0', TMInterface.Direction.RIGHT);
-        machine.addTransition("2", "3", '2', '3', TMInterface.Direction.RIGHT);
-        machine.addTransition("2", "1", '3', '0', TMInterface.Direction.LEFT);
+        machine.addTransition("2", "0", '0', '3', Direction.RIGHT);
+        machine.addTransition("2", "1", '1', '0', Direction.RIGHT);
+        machine.addTransition("2", "3", '2', '3', Direction.RIGHT);
+        machine.addTransition("2", "1", '3', '0', Direction.LEFT);
 
         String out = machine.run("");
 
