@@ -28,15 +28,15 @@ public class TMSimulator {
             System.err.println(USAGE);
             System.exit(1);
         }
-        
+
         try {
             TMParser parser = new TMParser(inputFile);
             machine = parser.getMachine();
             input = parser.getInputString();
         } catch (Exception e) {
             System.err.println("Error while parsing or initializing the Turing Machine:");
-        System.err.println("  " + e.getMessage());
-        System.exit(1);
+            System.err.println(e.getMessage());
+            System.exit(1);
         }
     }
 
