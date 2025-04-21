@@ -1,12 +1,11 @@
-package tm;
-
+import tm.*;
 import java.io.File;
 
 /**
  * Simulates a deterministic Turing Machine, constructed
  * from an encoded file.
  *
- * @author Jayce Lowry
+ * @author Jayce Lowry, Chase Stombaugh
  */
 public class TMSimulator {
     private final String PROGRAM_NAME = this.getClass().getName();
