@@ -16,7 +16,7 @@ public interface TMTapeInterface {
      * @return the character in the current
      * tape cell.
      */
-    public char read();
+    char read();
 
     /**
      * Writes a given symbol to the current
@@ -24,7 +24,7 @@ public interface TMTapeInterface {
      *
      * @param symbol the character to write.
      */
-    public void write(Character symbol);
+    void write(Character symbol);
 
     /**
      * Moves the read/write head for this tape
@@ -33,7 +33,7 @@ public interface TMTapeInterface {
      * @param direction the direction to move, which
      * is either left or right.
      */
-    public void move(TMInterface.Direction direction);
+    void move(TMInterface.Direction direction);
 
     /**
      * Gets the contents of visited tape cells, starting
@@ -43,5 +43,5 @@ public interface TMTapeInterface {
      * @return a String containing the contents of cells
      * that have been visited by the read/write head.
      */
-    public String getVisited();
+    String getVisited();
 }

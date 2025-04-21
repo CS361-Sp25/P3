@@ -30,12 +30,12 @@ public interface TMParserInterface {
      * @return an instance of the Turing Machine, constructed
      * from a parsed file.
      */
-    public TMInterface getMachine();
+    TMInterface getMachine();
 
     /**
      * Gets the input string processed by this parser.
      *
      * @return the input string.
      */
-    public String getInputString();
+    String getInputString();
 }
