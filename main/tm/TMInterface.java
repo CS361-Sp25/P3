@@ -11,12 +11,6 @@ import java.util.Set;
 public interface TMInterface {
 
     /**
-     * Enum representing possible movement directions for the
-     * read/write head.
-     */
-    public enum Direction {LEFT, RIGHT};
-
-    /**
      * Runs a simulation of this Turing Machine with a given
      * String input.
      *
@@ -24,7 +18,7 @@ public interface TMInterface {
      * @return a string containing the contents of the tape
      * cells visited during the simulation.
      */
-    public String run(String inputString);
+    String run(String inputString);
 
     /**
      * Adds a new state with a given name
@@ -34,7 +28,7 @@ public interface TMInterface {
      * @return true if the new state was added, false if
      * the state already exists.
      */
-    public boolean addState(String name);
+    boolean addState(String name);
 
     /**
      * Adds a transition between two states in this
@@ -50,7 +44,7 @@ public interface TMInterface {
      * @return true if successful, false if the states don't exist or if
      * the read or write symbols are not in the tape alphabet.
      */
-    public boolean addTransition(String fromState, String toState, char readSymb, char writeSymb, Direction move);
+    boolean addTransition(String fromState, String toState, char readSymb, char writeSymb, Direction move);
 
     /**
      * Marks a state with a given name as the initial state.
@@ -59,7 +53,7 @@ public interface TMInterface {
      * @return true if successful, false if a state with the
      * given name does not exist.
      */
-    public boolean setStart(String name);
+    boolean setStart(String name);
 
     /**
      * Marks a state with a given name as the accepting state.
@@ -68,7 +62,7 @@ public interface TMInterface {
      * @return true if successful, false if a state with the
      * given name does not exist.
      */
-    public boolean setFinal(String name);
+    boolean setFinal(String name);
 
     /**
      * Determines if a state with the given name is an initial
@@ -78,7 +72,7 @@ public interface TMInterface {
      * @return true if a state with the given
      * name exists and is the initial state.
      */
-    public boolean isStart(String name);
+    boolean isStart(String name);
 
     /**
      * Determines if a state with the given name is the final
@@ -88,7 +82,7 @@ public interface TMInterface {
      * @return true if a state with the given
      * name exists and is the final state.
      */
-    public boolean isFinal(String name);
+    boolean isFinal(String name);
 
     /**
      * Adds a symbol to the alphabet. The symbol
@@ -98,14 +92,14 @@ public interface TMInterface {
      * @param symbol the symbol to add to the
      * alphabet.
      */
-    public void addSigma(char symbol);
+    void addSigma(char symbol);
 
     /**
      * Gets the alphabet for this Turing Machine.
      *
      * @return the alphabet of this Turing Machine.
      */
-    public Set<Character> getSigma();
+    Set<Character> getSigma();
 
     /**
      * Returns state with the given name, or null if
@@ -115,5 +109,5 @@ public interface TMInterface {
      * @return TMState object or null if the state
      * doesn't exist.
      */
-    public TMState getState(String name);
+    TMState getState(String name);
 }

@@ -63,11 +63,11 @@ public class TMTape implements TMTapeInterface {
      * {@inheritDoc}
      */
     @Override
-    public void move(TMInterface.Direction direction) {
+    public void move(Direction direction) {
         if (direction == null) {
             return;
         }
-        if (direction == TMInterface.Direction.LEFT) {
+        if (direction == Direction.LEFT) {
             head--;
         } else { 
             head++;

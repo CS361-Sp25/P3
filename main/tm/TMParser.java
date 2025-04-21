@@ -58,8 +58,8 @@ public class TMParser implements TMParserInterface {
             String from = String.valueOf(fromStateIndex);
             String to = stringParts[0];
             char write = stringParts[1].charAt(0);
-            TMInterface.Direction direction = stringParts[2].equals("L")
-                    ? TMInterface.Direction.LEFT : TMInterface.Direction.RIGHT;
+            Direction direction = stringParts[2].equals("L")
+                    ? Direction.LEFT : Direction.RIGHT;
             char read = (char)(readSymbolIndex + '0');
 
             machine.addTransition(from, to, read, write, direction);

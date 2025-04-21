@@ -36,29 +36,29 @@ public class TMParserTest {
         // State 0, read '0'
         assertEquals(state1, state0.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state0.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.RIGHT, state0.getMoveDirection('0'));
+        assertEquals(Direction.RIGHT, state0.getMoveDirection('0'));
         // State 0, read '1'
         assertEquals(state2, state0.getTransitionState('1'));
         assertEquals(Character.valueOf('1'), state0.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('1'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('1'));
 
         // State 1, read '0'
         assertEquals(state0, state1.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state1.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.LEFT, state1.getMoveDirection('0'));
+        assertEquals(Direction.LEFT, state1.getMoveDirection('0'));
         // State 1, read '1'
         assertEquals(state1, state1.getTransitionState('1'));
         assertEquals(Character.valueOf('1'), state1.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state1.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state1.getMoveDirection('1'));
 
         // State 2, read '0'
         assertEquals(state1, state2.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state2.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.LEFT, state2.getMoveDirection('0'));
+        assertEquals(Direction.LEFT, state2.getMoveDirection('0'));
         // State 2, read '1'
         assertEquals(state3, state2.getTransitionState('1'));
         assertEquals(Character.valueOf('1'), state2.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('1'));
 
         // State 3, read '0'
         assertNull(state3.getTransitionState('0'));
@@ -98,70 +98,70 @@ public class TMParserTest {
         // State 0, read '0'
         assertEquals(state2, state0.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state0.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('0'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('0'));
         // State 0, read '1'
         assertEquals(state4, state0.getTransitionState('1'));
         assertEquals(Character.valueOf('2'), state0.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('1'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('1'));
         // State 0, read '2'
         assertEquals(state1, state0.getTransitionState('2'));
         assertEquals(Character.valueOf('0'), state0.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('2'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('2'));
         // State 0, read '3'
         assertEquals(state3, state0.getTransitionState('3'));
         assertEquals(Character.valueOf('0'), state0.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('3'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('3'));
 
         // State 1, read '0'
         assertEquals(state3, state1.getTransitionState('0'));
         assertEquals(Character.valueOf('3'), state1.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.RIGHT, state1.getMoveDirection('0'));
+        assertEquals(Direction.RIGHT, state1.getMoveDirection('0'));
         // State 1, read '1'
         assertEquals(state3, state1.getTransitionState('1'));
         assertEquals(Character.valueOf('3'), state1.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.LEFT, state1.getMoveDirection('1'));
+        assertEquals(Direction.LEFT, state1.getMoveDirection('1'));
         // State 1, read '2'
         assertEquals(state3, state1.getTransitionState('2'));
         assertEquals(Character.valueOf('3'), state1.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.LEFT, state1.getMoveDirection('2'));
+        assertEquals(Direction.LEFT, state1.getMoveDirection('2'));
         // State 1, read '3'
         assertEquals(state1, state1.getTransitionState('3'));
         assertEquals(Character.valueOf('1'), state1.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.RIGHT, state1.getMoveDirection('3'));
+        assertEquals(Direction.RIGHT, state1.getMoveDirection('3'));
 
         // State 2, read '0'
         assertEquals(state1, state2.getTransitionState('0'));
         assertEquals(Character.valueOf('3'), state2.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.LEFT, state2.getMoveDirection('0'));
+        assertEquals(Direction.LEFT, state2.getMoveDirection('0'));
         // State 2, read '1'
         assertEquals(state2, state2.getTransitionState('1'));
         assertEquals(Character.valueOf('3'), state2.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.LEFT, state2.getMoveDirection('1'));
+        assertEquals(Direction.LEFT, state2.getMoveDirection('1'));
         // State 2, read '2'
         assertEquals(state0, state2.getTransitionState('2'));
         assertEquals(Character.valueOf('1'), state2.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('2'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('2'));
         // State 2, read '3'
         assertEquals(state2, state2.getTransitionState('3'));
         assertEquals(Character.valueOf('1'), state2.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('3'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('3'));
 
         // State 3, read '0'
         assertEquals(state0, state3.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state3.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.RIGHT, state3.getMoveDirection('0'));
+        assertEquals(Direction.RIGHT, state3.getMoveDirection('0'));
         // State 3, read '1'
         assertEquals(state1, state3.getTransitionState('1'));
         assertEquals(Character.valueOf('0'), state3.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state3.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state3.getMoveDirection('1'));
         // State 3, read '2'
         assertEquals(state0, state3.getTransitionState('2'));
         assertEquals(Character.valueOf('2'), state3.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.RIGHT, state3.getMoveDirection('2'));
+        assertEquals(Direction.RIGHT, state3.getMoveDirection('2'));
         // State 3, read '3'
         assertEquals(state2, state3.getTransitionState('3'));
         assertEquals(Character.valueOf('2'), state3.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.RIGHT, state3.getMoveDirection('3'));
+        assertEquals(Direction.RIGHT, state3.getMoveDirection('3'));
 
         // State 4, read '0'
         assertNull(state4.getTransitionState('0'));
@@ -207,53 +207,53 @@ public class TMParserTest {
         // State 0, read '0'
         assertEquals(state1, state0.getTransitionState('0'));
         assertEquals(Character.valueOf('3'), state0.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.RIGHT, state0.getMoveDirection('0'));
+        assertEquals(Direction.RIGHT, state0.getMoveDirection('0'));
         // State 0, read '1'
         assertEquals(state0, state0.getTransitionState('1'));
         assertEquals(Character.valueOf('0'), state0.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state0.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state0.getMoveDirection('1'));
         // State 0, read '2'
         assertEquals(state2, state0.getTransitionState('2'));
         assertEquals(Character.valueOf('0'), state0.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('2'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('2'));
         // State 0, read '3'
         assertEquals(state2, state0.getTransitionState('3'));
         assertEquals(Character.valueOf('2'), state0.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.LEFT, state0.getMoveDirection('3'));
+        assertEquals(Direction.LEFT, state0.getMoveDirection('3'));
 
         // State 1, read '0'
         assertEquals(state2, state1.getTransitionState('0'));
         assertEquals(Character.valueOf('1'), state1.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.LEFT, state1.getMoveDirection('0'));
+        assertEquals(Direction.LEFT, state1.getMoveDirection('0'));
         // State 1, read '1'
         assertEquals(state2, state1.getTransitionState('1'));
         assertEquals(Character.valueOf('0'), state1.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state1.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state1.getMoveDirection('1'));
         // State 1, read '2'
         assertEquals(state1, state1.getTransitionState('2'));
         assertEquals(Character.valueOf('3'), state1.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.LEFT, state1.getMoveDirection('2'));
+        assertEquals(Direction.LEFT, state1.getMoveDirection('2'));
         // State 1, read '3'
         assertEquals(state2, state1.getTransitionState('3'));
         assertEquals(Character.valueOf('2'), state1.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.RIGHT, state1.getMoveDirection('3'));
+        assertEquals(Direction.RIGHT, state1.getMoveDirection('3'));
 
         // State 2, read '0'
         assertEquals(state0, state2.getTransitionState('0'));
         assertEquals(Character.valueOf('3'), state2.getWriteSymbol('0'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('0'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('0'));
         // State 2, read '1'
         assertEquals(state1, state2.getTransitionState('1'));
         assertEquals(Character.valueOf('0'), state2.getWriteSymbol('1'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('1'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('1'));
         // State 2, read '2'
         assertEquals(state3, state2.getTransitionState('2'));
         assertEquals(Character.valueOf('3'), state2.getWriteSymbol('2'));
-        assertEquals(TMInterface.Direction.RIGHT, state2.getMoveDirection('2'));
+        assertEquals(Direction.RIGHT, state2.getMoveDirection('2'));
         // State 2, read '3'
         assertEquals(state1, state2.getTransitionState('3'));
         assertEquals(Character.valueOf('0'), state2.getWriteSymbol('3'));
-        assertEquals(TMInterface.Direction.LEFT, state2.getMoveDirection('3'));
+        assertEquals(Direction.LEFT, state2.getMoveDirection('3'));
 
         // State 4, read '0'
         assertNull(state3.getTransitionState('0'));
