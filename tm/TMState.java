@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Represents a single state for a deterministic Turing Machine.
+ * Represents a single state for a Turing Machine.
  *
  * @author Jayce Lowry
  */
@@ -65,7 +65,7 @@ public class TMState {
      * symbol is read.
      *
      * @param readSymb the symbol to read from the tape.
-     * @return the state to transition to, or null if no
+     * @return the symbol to write to the tape, or null if no
      * transition on the given symbol exists.
      */
     public Character getWriteSymbol(char readSymb) {

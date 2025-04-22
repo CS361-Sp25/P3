@@ -4,7 +4,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * An implementation of the TMInterface.
+ * An implementation of the TMInterface using a single
+ * bi-infinite tape.
  *
  * @author Jayce Lowry
  */

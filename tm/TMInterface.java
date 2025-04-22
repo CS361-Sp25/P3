@@ -3,7 +3,7 @@ package tm;
 import java.util.Set;
 
 /**
- * An interface for a deterministic Turing Machine with one start
+ * An interface for a Turing Machine with one start
  * state and one final state.
  *
  * @author Jayce Lowry
@@ -56,7 +56,7 @@ public interface TMInterface {
     boolean setStart(String name);
 
     /**
-     * Marks a state with a given name as the accepting state.
+     * Marks a state with a given name as the halting state.
      *
      * @param name the name of the state to mark as final.
      * @return true if successful, false if a state with the
@@ -102,7 +102,7 @@ public interface TMInterface {
     Set<Character> getSigma();
 
     /**
-     * Returns state with the given name, or null if
+     * Returns the state with the given name, or null if
      * none exists.
      *
      * @param name the name of the state
